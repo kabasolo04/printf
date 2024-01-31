@@ -6,7 +6,7 @@
 /*   By: kabasolo <kabasolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 11:25:05 by kabasolo          #+#    #+#             */
-/*   Updated: 2024/01/30 18:12:51 by kabasolo         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:33:04 by kabasolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define HEX2 "0123456789ABCDEF"
 
 int	ft_str(char *str);
-int	ft_num(long nbr, char *base);
+int	ft_dec(long nbr, char *base);
 int	ft_hex(unsigned long nbr, char *base);
 int	ft_printf(char const *s, ...);
 

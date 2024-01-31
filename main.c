@@ -6,7 +6,7 @@
 /*   By: kabasolo <kabasolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 10:58:50 by kabasolo          #+#    #+#             */
-/*   Updated: 2024/01/30 18:37:35 by kabasolo         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:35:36 by kabasolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main (void)
 {
-    ft_printf("%");
+    ft_printf("Deveria no printear nada: [%]\n");
     char charVar = 'A';
     printf("Original printf %%c: [%c]\n", charVar);
     ft_printf("Tu ft_printf %%c:    [%c]\n", charVar);
