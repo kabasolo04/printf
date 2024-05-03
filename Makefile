@@ -6,12 +6,12 @@
 #    By: kabasolo <kabasolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 11:17:25 by kabasolo          #+#    #+#              #
-#    Updated: 2024/01/31 10:33:42 by kabasolo         ###   ########.fr        #
+#    Updated: 2024/05/03 13:38:05 by kabasolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-SOURCES = ft_printf.c ft_hex.c ft_dec.c ft_str.c
+SOURCES = src/ft_printf.c src/printers.c
 OBJECTS = $(SOURCES:%.c=%.o)
 CFLAGS = -Wall -Wextra -Werror
 

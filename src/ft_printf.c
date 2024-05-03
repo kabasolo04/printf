@@ -6,28 +6,28 @@
 /*   By: kabasolo <kabasolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 12:44:11 by kabasolo          #+#    #+#             */
-/*   Updated: 2024/01/31 10:33:57 by kabasolo         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:38:24 by kabasolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_conversor(char c, va_list va)
+static int	filter(char c, va_list va)
 {
 	if (c == 'c')
 		return (write(1, &(char){va_arg(va, int)}, 1));
 	if (c == 's')
-		return (ft_str(va_arg(va, char *)));
+		return (string(va_arg(va, char *)));
 	if (c == 'p')
-		return (write(1, "0x", 2) + ft_hex(va_arg(va, unsigned long), HEX1));
+		return (write(1, "0x", 2) + hex(va_arg(va, unsigned long), HEX_MIN));
 	if (c == 'd' || c == 'i')
-		return (ft_dec(va_arg(va, int), NUM));
+		return (dec(va_arg(va, int)));
 	if (c == 'u')
-		return (ft_dec(va_arg(va, unsigned int), NUM));
+		return (dec(va_arg(va, unsigned int)));
 	if (c == 'x')
-		return (ft_hex(va_arg(va, unsigned int), HEX1));
+		return (hex(va_arg(va, unsigned int), HEX_MIN));
 	if (c == 'X')
-		return (ft_hex(va_arg(va, unsigned int), HEX2));
+		return (hex(va_arg(va, unsigned int), HEX_MAX));
 	return (write(1, &c, 1));
 }
 
@@ -41,12 +41,10 @@ int	ft_printf(char const *s, ...)
 	while (*s)
 	{
 		if (*s == '%')
-			n += ft_conversor(*++s, va);
+			n += filter(*++s, va);
 		else
 			n += write(1, s, 1);
-		if (*s)
-			s ++;
+		s += !(!s);
 	}
-	va_end(va);
-	return (n);
+	return (va_end(va), n);
 }
